@@ -42,6 +42,18 @@ put '/cms/setting' do
   redirect '/cms/setting'
 end
 
+get '/cms/pictures' do
+  @pictures = Picture.all.desc(:created_at)
+  haml :'cms/pictures/index', layout: :'cms/layout'
+end
+
+post '/cms/pictures' do
+  @picture = Picture.new
+  @picture.uploader = params[:file]
+  @picture.save
+  redirect '/cms/pictures'
+end
+
 get '/cms/:id' do
   haml :'cms/show', layout: :'cms/layout'
 end

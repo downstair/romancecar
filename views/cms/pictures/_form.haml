@@ -1,0 +1,11 @@
+%form#picture_uploader{ action: "/cms/pictures", method: "post", enctype: "multipart/form-data" }
+  %input#file_field{ type: 'file', name: 'file' }
+  = csrf_tag
+:javascript
+  $(function () {
+    $('#file_field').change(function () {
+      if ($(this).val()) {
+        $('#picture_uploader').submit();
+      }
+    });
+  });
