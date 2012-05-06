@@ -13,11 +13,11 @@ end
 
 # CMS
 get '/cms' do
-  haml :'cms/index'
+  haml :'cms/index', layout: :'cms/layout'
 end
 
 get '/cms/new' do
-  haml :'cms/edit'
+  haml :'cms/edit', layout: :'cms/layout'
 end
 
 post '/cms/new' do
@@ -26,7 +26,7 @@ post '/cms/new' do
 end
 
 get '/cms/edit/:id' do
-  haml :'cms/edit'
+  haml :'cms/edit', layout: :'cms/layout'
 end
 
 put '/cms/edit/:id' do
@@ -35,7 +35,7 @@ put '/cms/edit/:id' do
 end
 
 get '/cms/setting' do
-  haml :'cms/setting'
+  haml :'cms/setting', layout: :'cms/layout'
 end
 
 put '/cms/setting' do
@@ -43,7 +43,7 @@ put '/cms/setting' do
 end
 
 get '/cms/:id' do
-  haml :'cms/show'
+  haml :'cms/show', layout: :'cms/layout'
 end
 
 get %r(/grid/(.*)) do |key|
