@@ -7,6 +7,45 @@ get '/' do
   haml :index
 end
 
+get '/p/:id' do
+  haml :index
+end
+
+# CMS
+get '/cms' do
+  haml :'cms/index'
+end
+
+get '/cms/new' do
+  haml :'cms/edit'
+end
+
+post '/cms/new' do
+  # FIX IT
+  redirect '/cms/edit/:id'
+end
+
+get '/cms/edit/:id' do
+  haml :'cms/edit'
+end
+
+put '/cms/edit/:id' do
+  # FIX IT
+  redirect '/cms/edit/:id'
+end
+
+get '/cms/setting' do
+  haml :'cms/setting'
+end
+
+put '/cms/setting' do
+  redirect '/cms/setting'
+end
+
+get '/cms/:id' do
+  haml :'cms/show'
+end
+
 not_found do
   "Not Found"
 end
