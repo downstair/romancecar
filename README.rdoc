@@ -1,3 +1,5 @@
 = Romancecar Project
 
 Romancecar is a fast and easy CMS for affiliating.
+
+The web application can be uploaded and deployed into Cloud Foundry.
