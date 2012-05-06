@@ -1,6 +1,6 @@
-@import 'bourbon/bourbon'
+@import '../bourbon/bourbon'
 
-$common_width: 240px
+$common_width: 900px
 
 body
   margin: 0
@@ -55,6 +55,7 @@ dl
     color: #666
     font-family: Georgia, serif
     font-weight: normal
+    border-bottom: 1px solid #000000
   h3
     margin: .8em 0 .3em
     line-height: 1
@@ -67,21 +68,12 @@ dl
     color: #05A
     text-decoration: underline
   .btn_field
-    text-align: center
+    text-align: left
     padding: 0 0 10px 0 
     button
       @include button
-  #desc
-    background-color: #E6E6FA
-    padding: 5px
-  #caution
-    margin-bottom: 10px 
-    padding: 5px
-    background-color: #eee
-    color: #ff0000
-    font-size: 0.7em
-  .question
-    padding: 10px 0 10px 0
+  #page_nation
+    text-align: center
 	
 #game
   @include clearfix
@@ -133,9 +125,6 @@ dl
     &.white
       color: #fff
 
-#fmenu_field
-  font-size: 0.6em
-  text-align: center
 
 #footer
   text-align: center
