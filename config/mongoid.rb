@@ -51,6 +51,6 @@ if ENV['VCAP_SERVICES']
   end
 else
   Mongoid.configure do |config|
-    config.master = Mongo::Connection.new.db('shogiplus')
+    config.master = Mongo::Connection.new.db('romancecar')
   end
 end

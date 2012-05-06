@@ -7,7 +7,7 @@ get '/' do
   haml :index
 end
 
-get '/p/:id' do
+get '/col/:id' do
   haml :index
 end
 
@@ -44,6 +44,16 @@ end
 
 get '/cms/:id' do
   haml :'cms/show'
+end
+
+get %r(/grid/(.*)) do |key|
+  begin
+    Mongo::GridFileSystem.new(Mongoid.database).open(key, 'r') do |file|
+      [200, { 'Content-Type' => file.content_type }, [file.read]]
+    end
+  rescue
+    404
+  end
 end
 
 not_found do
