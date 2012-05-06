@@ -1,0 +1,141 @@
+@import '../bourbon/bourbon'
+
+$common_width: 900px
+
+body
+  margin: 0
+  font-size: 90%
+
+pre
+  color: black
+  font-family: Monaco, Courier, Helvetica, sans-serif
+  font-size: 100%
+  border: 1px solid #EEF
+  background: #F5F5FF
+  padding: .5em .8em
+  overflow: auto
+  white-space: -moz-pre-wrap
+  white-space: -pre-wrap
+  white-space: -o-pre-wrap
+  white-space: pre-wrap
+  word-wrap: break-word
+
+dl
+  dt
+    font-size: 1.1em
+    font-weight: bold
+    font-family: Georgia, serif
+  dd
+    margin-bottom: 1em
+
+#header
+  margin: 0
+  padding: 5px 1px
+  background-color: #eee
+  border:
+    right: 1px solid #efefef
+    left: 1px solid #efefef
+  h1
+    margin: 0
+    font-family: Georgia, serif
+    font-weight: normal
+    font-size: 16px
+    line-height: 20px
+    a
+      text-decoration: none
+      color: black
+
+#content
+  width: $common_width
+  margin: 0 auto
+  padding: 0
+  h2
+    margin: .8em 0 .5em
+    font-size: 1.6em
+    color: #666
+    font-family: Georgia, serif
+    font-weight: normal
+    border-bottom: 1px solid #000000
+  h3
+    margin: .8em 0 .3em
+    line-height: 1
+    font-size: 1.2em
+    font-family: Georgia, serif
+  a:link, a:visited
+    color: #05A
+    text-decoration: none
+  a:hover
+    color: #05A
+    text-decoration: underline
+  .btn_field
+    text-align: left
+    padding: 0 0 10px 0 
+    button
+      @include button
+  #page_nation
+    text-align: center
+	
+#game
+  @include clearfix
+  margin: 0 auto
+  padding: 20px 0
+  width: $common_width
+  border-bottom: 1px solid #efefef
+  #board
+    @include clearfix
+    background-color: #ffab00
+    float: left
+    width: 504px
+    height: 504px
+    border: 1px solid #b37700
+    .cell
+      float: left
+      height: 46px
+      width: 46px
+      border: 1px solid #b37700
+      padding: 4px
+      overflow: hidden
+      .ui-sortable-placeholder
+        border: 1px dotted black
+        visibility: visible !important
+        height: 44px !important
+        width: 44px !important
+        *
+          visibility: hidden
+  #side
+    float: left
+    width: 194px
+    height: 506px
+    .hand
+      width: 192px
+      height: 251px
+      border: 1px solid #b37700
+  .piece
+    cursor: pointer
+    border: 1px solid #b37700
+    background-color: #ffab00
+    height: 44px
+    width: 44px
+    text-align: center
+    vertical-align: middle
+    overflow: hidden
+    text-overflow: ellipsis
+    &.black
+      color: #000
+    &.white
+      color: #fff
+
+
+#footer
+  text-align: center
+  margin: 0
+  font-size: 80%
+  padding: 1px
+  background-color: #eee
+  border:
+    right: 1px solid #efefef
+    left: 1px solid #efefef
+  
+  
+
+  
