@@ -1,6 +1,7 @@
 gem 'sinatra'
 gem 'haml'
 gem 'sass'
+gem 'bourbon'
 gem 'json_pure'
 gem 'mongo'
 gem 'mongoid'

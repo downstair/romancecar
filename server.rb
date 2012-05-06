@@ -15,16 +15,18 @@ error 403 do
   "Invalid Format"
 end
 
+get '/main.css' do
+  sass :main
+end
+
 set :haml, { ugly: true, format: :html5 }
 set :public_folder, File.dirname(__FILE__) + '/public'
 
 configure do
-  fb_config = YAML.load_file('./config/facebook.yml').stringify_keys
-  #use Rack::Session::Cookie, key: 'rack.session',
-  #                           domain: 'romancecar.cloudfoundry.com',
-  #                           path: '/',
-  #                           expire_after: 2592000,
-  #                           secret: 'd4963334c2748abf3ac9ebefbc31928c'
+  use Rack::Session::Cookie, key: 'rack.session',
+                             path: '/',
+                             expire_after: 2592000,
+                             secret: 'd4963334c2748abf3ac9ebefbc31928c'
   use Rack::Csrf, raise: true, skip: ['POST:/']
 end
 
