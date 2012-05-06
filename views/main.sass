@@ -1,6 +1,6 @@
 @import 'bourbon/bourbon'
 
-$common_width: 980px
+$common_width: 240px
 
 body
   margin: 0
@@ -66,7 +66,23 @@ dl
   a:hover
     color: #05A
     text-decoration: underline
-
+  .btn_field
+    text-align: center
+    padding: 0 0 10px 0 
+    button
+      @include button
+  #desc
+    background-color: #E6E6FA
+    padding: 5px
+  #caution
+    margin-bottom: 10px 
+    padding: 5px
+    background-color: #eee
+    color: #ff0000
+    font-size: 0.7em
+  .question
+    padding: 10px 0 10px 0
+	
 #game
   @include clearfix
   margin: 0 auto
@@ -117,7 +133,20 @@ dl
     &.white
       color: #fff
 
+#fmenu_field
+  font-size: 0.6em
+  text-align: center
 
 #footer
-  margin: 10px
   text-align: center
+  margin: 0
+  font-size: 80%
+  padding: 1px
+  background-color: #eee
+  border:
+    right: 1px solid #efefef
+    left: 1px solid #efefef
+  
+  
+
+  
