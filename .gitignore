@@ -3,9 +3,11 @@
 *.orig
 *.swp
 *.swo
-Gemfile.lock
-config/*.yml
 pkg
 .rvmrc
+/Gemfile.lock
+/config/*.yml
 vendor/cache
 .bundle
+/uploads
+/public/uploads
