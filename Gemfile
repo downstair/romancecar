@@ -2,14 +2,16 @@ source 'http://rubygems.org'
 
 # Sinatra
 gem 'sinatra'
+gem 'sinatra-namespace'
 
 # View
 gem 'haml'
 gem 'sass'
 gem 'bourbon'
+gem 'coffee-script'
 
 # Json Parser
-gem 'json_pure'
+gem 'json_pure', '1.6.1'
 
 # MongoDB as a database
 gem 'mongo'
@@ -24,6 +26,9 @@ gem 'rspec-core'
 gem 'guard-rspec'
 gem 'fakeweb'
 gem 'rack_csrf'
+gem 'rake'
+gem 'spork'
+gem 'guard-spork'
 
 # Uploader of Images
 gem 'carrierwave', '0.5.8'

@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
 
 require 'sinatra'
+require 'sinatra/namespace'
 require './config/initializer'
 
+# Routers and Controllers
 get '/' do
   haml :index
 end
@@ -12,52 +14,55 @@ get '/col/:id' do
 end
 
 # CMS
-get '/cms' do
-  haml :'cms/index', layout: :'cms/layout'
+namespace '/cms' do
+  get '/' do
+    haml :'cms/index', layout: :'cms/layout'
+  end
+
+  get '/new' do
+    haml :'cms/edit', layout: :'cms/layout'
+  end
+
+  post '/new' do
+    # FIX IT
+    redirect '/cms/edit/:id'
+  end
+
+  get '/edit/:id' do
+    haml :'cms/edit', layout: :'cms/layout'
+  end
+
+  put '/edit/:id' do
+    # FIX IT
+    redirect '/cms/edit/:id'
+  end
+
+  get '/setting' do
+    haml :'cms/setting', layout: :'cms/layout'
+  end
+
+  put '/setting' do
+    redirect '/cms/setting'
+  end
+
+  get '/pictures' do
+    @pictures = Picture.all.desc(:created_at)
+    haml :'cms/pictures/index', layout: :'cms/layout'
+  end
+
+  post '/pictures' do
+    @picture = Picture.new
+    @picture.uploader = params[:file]
+    @picture.save
+    redirect '/cms/pictures'
+  end
+
+  get '/:id' do
+    haml :'cms/show', layout: :'cms/layout'
+  end
 end
 
-get '/cms/new' do
-  haml :'cms/edit', layout: :'cms/layout'
-end
-
-post '/cms/new' do
-  # FIX IT
-  redirect '/cms/edit/:id'
-end
-
-get '/cms/edit/:id' do
-  haml :'cms/edit', layout: :'cms/layout'
-end
-
-put '/cms/edit/:id' do
-  # FIX IT
-  redirect '/cms/edit/:id'
-end
-
-get '/cms/setting' do
-  haml :'cms/setting', layout: :'cms/layout'
-end
-
-put '/cms/setting' do
-  redirect '/cms/setting'
-end
-
-get '/cms/pictures' do
-  @pictures = Picture.all.desc(:created_at)
-  haml :'cms/pictures/index', layout: :'cms/layout'
-end
-
-post '/cms/pictures' do
-  @picture = Picture.new
-  @picture.uploader = params[:file]
-  @picture.save
-  redirect '/cms/pictures'
-end
-
-get '/cms/:id' do
-  haml :'cms/show', layout: :'cms/layout'
-end
-
+# load file from GridFS of MongoDB
 get %r(/grid/(.*)) do |key|
   begin
     Mongo::GridFileSystem.new(Mongoid.database).open(key, 'r') do |file|
@@ -80,6 +85,11 @@ get '/main.css' do
   sass :main
 end
 
+get '/main.js' do
+  coffee :main
+end
+
+# Configurations
 set :haml, { ugly: true, format: :html5 }
 set :public_folder, File.dirname(__FILE__) + '/public'
 
