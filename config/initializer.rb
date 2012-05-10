@@ -1,6 +1,10 @@
 # -*- coding: utf-8 -*-
 
-require 'mongoid'
+# setting load paths
+root_path = File.dirname(__FILE__).sub(%r(/config$), '')
+$LOAD_PATH.unshift(root_path)
+$LOAD_PATH.unshift(root_path + '/lib')
+
 # require 'sinatra/reloader' if development?
 require 'open-uri'
 require 'haml'
@@ -13,18 +17,17 @@ require 'uri'
 require 'rack/csrf'
 require 'active_support/all'
 
-require './config/mongoid'
-
+# database: mongoid
+require 'mongoid'
+require 'config/mongoid'
 require 'carrierwave'
 require 'carrierwave/mongoid'
-require './config/carrierwave'
+require 'config/carrierwave'
 
-Dir.entries('./uploaders').each do |entry|
-  next if entry !~ /.*\.rb/
-  require "./uploaders/#{entry}"
-end
-
-Dir.entries('./models').each do |entry|
-  next if entry !~ /.*\.rb/
-  require "./models/#{entry}"
+# require application units
+%w(uploaders models).each do |directory|
+  Dir.entries("./#{directory}").each do |entry|
+    next if entry !~ /.*\.rb/
+    require "#{directory}/#{entry}"
+  end
 end

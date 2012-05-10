@@ -7,7 +7,7 @@ Spork.prefork do
   require 'pp'
   require 'rspec'
   require 'rack/test'
-  require Dir.pwd + '/server'
+  require 'server'
 
   # database configuration for tests
   Mongoid.configure do |config|
