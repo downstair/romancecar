@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 
 # Sinatra
-gem 'sinatra'
-gem 'sinatra-namespace'
+gem 'sinatra', '1.3.2'
+gem 'sinatra-namespace', '1.0'
 
 # View
 gem 'haml'
@@ -14,11 +14,11 @@ gem 'coffee-script'
 gem 'json_pure', '1.6.1'
 
 # MongoDB as a database
-gem 'mongo'
-gem 'bson_ext'
-gem 'mongoid'
+gem 'mongo', '1.6.2'
+gem 'bson_ext', '1.6.2'
+gem 'mongoid', '2.4.8'
 
-gem 'activesupport'
+gem 'activesupport', '3.2.3'
 
 # Test framework
 gem 'rspec'
@@ -31,5 +31,5 @@ gem 'spork'
 gem 'guard-spork'
 
 # Uploader of Images
-gem 'carrierwave', '0.5.8'
-gem 'carrierwave-mongoid', '0.1.3', require: 'carrierwave/mongoid'
+gem 'carrierwave', '0.6.1'
+gem 'carrierwave-mongoid', '0.2.0', require: 'carrierwave/mongoid'
