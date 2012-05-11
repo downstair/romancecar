@@ -2,9 +2,8 @@
 - @pictures.each do |picture|
   - picture_url = picture.uploader_url
   %p.thumb{ 'picture-url' => picture_url }
-    %img{ src: picture_url }
+    = img_tag(picture_url)
     %br
     = picture.caption
     %br
-    %a.insert{ href: '#' }
-      挿入する
+    = a_tag('挿入する', '#', class: :insert)
