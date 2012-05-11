@@ -102,31 +102,8 @@ configure do
 end
 
 helpers do
-  def csrf_token
-    Rack::Csrf.csrf_token(env)
-  end
-
-  def csrf_tag
-    Rack::Csrf.csrf_tag(env)
-  end
-
-  def number_with_delimiter(number)
-    parts = number.to_s.to_str.split('.')
-    parts[0].gsub!(/(\d)(?=(\d\d\d)+(?!\d))/, "\\1,")
-    parts.join('.')
-  end
-
-  def partial(renderer, template, options = {})
-    options = options.merge({layout: false})
-    template = template.to_s.sub(/(\/|^)(\w+)$/, '\1_\2').to_sym
-    method(renderer).call(template, options)
-  end
-
-  def partial_erb(template, options)
-    partial(:erb, template, options)
-  end
-
-  def partial_haml(template, options = {})
-    partial(:haml, template, options)
-  end
+  include TagHelper
+  include FormHelper
+  include TemplateHelper
+  include TextHelper
 end

@@ -25,7 +25,7 @@ require 'carrierwave/mongoid'
 require 'config/carrierwave'
 
 # require application units
-%w(uploaders models).each do |directory|
+%w(uploaders models helpers).each do |directory|
   Dir.entries("./#{directory}").each do |entry|
     next if entry !~ /.*\.rb/
     require "#{directory}/#{entry}"
