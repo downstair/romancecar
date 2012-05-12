@@ -45,6 +45,10 @@ namespace '/cms' do
     redirect '/cms/setting'
   end
 
+  get '/main.css' do
+      sass :"cms/main"
+  end
+
   get '/pictures' do
     @pictures = Picture.all.desc(:created_at)
     haml :'cms/pictures/index', layout: :'cms/layout'
