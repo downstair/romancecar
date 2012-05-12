@@ -42,6 +42,10 @@ put '/cms/setting' do
   redirect '/cms/setting'
 end
 
+get '/cms/main.css' do
+    sass :"cms/main"
+end
+
 get '/cms/:id' do
   haml :'cms/show', layout: :'cms/layout'
 end
